@@ -41,9 +41,17 @@ int main(){
     int no_dice, current,final_position;
     current=0;
     srand(time(NULL));
-   do{
+   do{  
         no_dice=dice();
         printf("You rolled the dice and the number is: %d\n",no_dice);
+        if(current==0 && no_dice!=6){
+            continue;
+        }
+        if(current==0 && no_dice==6){
+            current =1;
+            printf("You are now at 1.\n");
+            continue;
+        }
         current= current+no_dice;
         if(current>100){
             printf("You rolled more than 100, so current position is %d/n",current-no_dice);
